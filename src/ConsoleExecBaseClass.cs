@@ -308,18 +308,15 @@ public class ConsoleExecBaseClass
 		}
 		set
 		{
-			if (value) {
-				if (_con_hooklog) {
-					Con.Log("The log is already hooked!");
-				} else {
-					KSPLog.AddLogCallback(CSharpConsole.HandleLog);
-				}
-			} else {
-				if (_con_hooklog) {
-					KSPLog.RemoveLogCallback(CSharpConsole.HandleLog);
-				} else {
-					Con.Log("The log is already <b>un</b>hooked!");
-				}
+			if (value)
+			{
+				if (_con_hooklog)	Con.Log("The log is already hooked!");
+				else			KSPLog.AddLogCallback(CSharpConsole.HandleLog);
+			}
+			else
+			{
+				if (_con_hooklog)	KSPLog.RemoveLogCallback(CSharpConsole.HandleLog);
+				else			Con.Log("The log is already <b>un</b>hooked!");
 			}
 			_con_hooklog = value;
 		}
